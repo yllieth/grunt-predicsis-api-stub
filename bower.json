@@ -1,0 +1,21 @@
+{
+  "name": "grunt-predicsis-api-stub",
+  "version": "0.0.0",
+  "homepage": "https://github.com/yllieth/grunt-predicsis-api-stub",
+  "authors": [
+    "yllieth <sylvnimes@hotmail.com>"
+  ],
+  "description": "Grunt plugin to easily run stub server of PredicSis API",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "predicsis_ml_stub-nodejs": "git@github.com:yllieth/predicsis_ml_stub-nodejs.git"
+  }
+}
