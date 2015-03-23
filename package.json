@@ -1,0 +1,41 @@
+{
+  "name": "grunt-predicsis-api-stub",
+  "description": "Grunt plugin to easily run stub server of PredicSis API",
+  "version": "0.0.0",
+  "homepage": "https://github.com/yllieth/grunt-predicsis-api-stub",
+  "author": {
+    "name": "Sylvain",
+    "email": "sylvnimes@hotmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/yllieth/grunt-predicsis-api-stub.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yllieth/grunt-predicsis-api-stub/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/yllieth/grunt-predicsis-api-stub/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "^0.9.2",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-nodeunit": "^0.3.3",
+    "grunt": "~0.4.5"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.5"
+  },
+  "keywords": [
+    "gruntplugin"
+  ]
+}
