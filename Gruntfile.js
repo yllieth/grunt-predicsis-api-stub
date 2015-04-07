@@ -30,21 +30,11 @@ module.exports = function(grunt) {
 
     // Configuration to be run (and then tested).
     predicsis_api_stub: {
-      default_options: {
-        options: {
-        },
-        files: {
-          'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123']
-        }
-      },
-      custom_options: {
-        options: {
-          separator: ': ',
-          punctuation: ' !!!'
-        },
-        files: {
-          'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123']
-        }
+      all: {
+        s3:      8005,
+        api:     8003,
+        idproxy: 8002,
+        oauth:   8004
       }
     },
 
