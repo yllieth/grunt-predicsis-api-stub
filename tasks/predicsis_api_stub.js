@@ -10,36 +10,42 @@
 
 module.exports = function(grunt) {
 
-  function stubApi(port, keepalive) {
+  function stubApi(endpoint, keepalive) {
     var api = require('../bower_components/predicsis_ml_stub-nodejs/src/stubbed-api.js');
-    api.listen(port);
+    api.listen(endpoint.port);
     keepalive();
   }
 
-  function stubS3(port, keepalive) {
+  function stubS3(endpoint, keepalive) {
     var s3 = require('../bower_components/predicsis_ml_stub-nodejs/src/stubbed-s3.js');
-    s3.listen(port);
+    s3.listen(endpoint.port);
     keepalive();
   }
 
-  function stubIdentity(port, keepalive) {
+  function stubIdentity(endpoint, keepalive) {
     var identity = require('../bower_components/predicsis_ml_stub-nodejs/src/stubbed-identity.js');
-    identity.listen(port);
+    identity.listen(endpoint.port);
     keepalive();
   }
 
-  function stubIdproxy(port, keepalive) {
+  function stubIdproxy(endpoint, keepalive) {
     var idProxy = require('../bower_components/predicsis_ml_stub-nodejs/src/stubbed-idproxy.js');
-    idProxy.listen(port);
+    idProxy.listen(endpoint.port);
     keepalive();
   }
 
   grunt.registerMultiTask('predicsis_api_stub', 'Grunt plugin to easily run stub server of PredicSis API', function() {
-    var ports = this.data;
+    var endpoints = this.data;
+    var headers = this.options().headers;
 
-    stubS3(ports.s3, this.async);
-    stubApi(ports.api, this.async);
-    stubIdentity(ports.idproxy, this.async);
-    stubIdproxy(ports.oauth, this.async);
+    process.env.PREDICSIS_STUBAPI_ORIGINS = headers['Access-Control-Allow-Origin'];
+    process.env.PREDICSIS_STUBAPI_METHODS = headers['Access-Control-Allow-Methods'];
+    process.env.PREDICSIS_STUBAPI_HEADERS = headers['Access-Control-Allow-Headers'];
+    process.env.PREDICSIS_STUBAPI_CREDENTIALS = headers['Access-Control-Allow-Credentials'];
+
+    stubS3(endpoints.s3, this.async);
+    stubApi(endpoints.api, this.async);
+    stubIdproxy(endpoints.identity, this.async);
+    stubIdentity(endpoints.oauth, this.async);
   });
 };

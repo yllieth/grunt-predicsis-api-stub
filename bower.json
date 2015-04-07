@@ -15,7 +15,7 @@
     "test",
     "tests"
   ],
-  "devDependencies": {
+  "dependencies": {
     "predicsis_ml_stub-nodejs": "git@github.com:yllieth/predicsis_ml_stub-nodejs.git"
   }
 }

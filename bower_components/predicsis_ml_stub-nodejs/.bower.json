@@ -14,11 +14,11 @@
     "test",
     "tests"
   ],
-  "_release": "d5441f83c4",
+  "_release": "6747ea4584",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "d5441f83c4a64d8740056f210141290ebd3db33a"
+    "commit": "6747ea458498c8ae12908f9eaa8391b9e8483600"
   },
   "_source": "git@github.com:yllieth/predicsis_ml_stub-nodejs.git",
   "_target": "*",

@@ -30,11 +30,19 @@ module.exports = function(grunt) {
 
     // Configuration to be run (and then tested).
     predicsis_api_stub: {
-      all: {
-        s3:      8005,
-        api:     8003,
-        idproxy: 8002,
-        oauth:   8004
+      options: {
+        headers: {
+          'Access-Control-Allow-Origin': 'http://localhost:8002',
+          'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
+          'Access-Control-Allow-Headers': 'x-from-state,content-type,authorization,cache-control,x-requested-with,x-mock-response,x-body-sent',
+          'Access-Control-Allow-Credentials': true
+        }
+      },
+      endpoints: {
+        s3: { port: 8005 },
+        api: { port: 8003 },
+        oauth: { port: 8004 },
+        identity: { port: 8002 }
       }
     },
 
